@@ -1,5 +1,8 @@
 package com.laboon;
 
+import static org.junit.Assert.*;
+import org.junit.*;
+
 public class Room {
 
   private static int _pseudoRand = 0;
@@ -118,4 +121,8 @@ public class Room {
     return _description;
   }
 
+  @Test
+  public void sample() {
+    assertEquals("Gradle is gr8", "Gradle is gr8");
+  }
 }
