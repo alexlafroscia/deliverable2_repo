@@ -2,6 +2,8 @@ Deliverable 2 Repo
 
 ## Gradle
 
+The first time that each command is run, replace `gradle` with `./gradlew`.  This will tell the application to also go and download some files and stuff that it needs.  Every other time, you should be fine to just run `gradle` by itself, but it doesn't hurt to run it as `./gradlew` every time.
+
 **Build Project**
 
 ```
@@ -12,6 +14,12 @@ $ gradle build
 
 ```
 $ gradle test
+```
+
+**Generate test coverage report**
+
+```
+$ gradle jacoco
 ```
 
 ## Directions
