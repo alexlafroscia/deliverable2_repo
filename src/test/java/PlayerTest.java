@@ -17,7 +17,21 @@ public class PlayerTest {
   public void testAllItemsEmpty() { 
     
     //Create mock of Player object
-    Player tester = Mockito.mock(Player.class);
+    Player tester = new Player();
+    
+    //Test Case
+    assertEquals(tester.hasAllItems(),false);
+  }
+  
+  /*
+   * Test case builds mock of player that has all items set to false
+   * Return of hasAllItems() should be false
+   */
+  @Test
+  public void testAllItemsLose() { 
+    
+    //Create mock of Player object
+    Player tester = new Player(true, false, false);
     
     //Test Case
     assertEquals(tester.hasAllItems(),false);
@@ -43,8 +57,22 @@ public class PlayerTest {
   @Test
   public void testDrinkEmpty() { 
     
-    //Create mock of Player object
-    Player tester = Mockito.mock(Player.class);
+    //Create Player object
+    Player tester = new Player();
+    
+    //Test Case
+    assertEquals(tester.drink(),false);
+  }
+  
+  /*
+   * Test case builds mock of player that has no items
+   * Return of drink() should be false
+   */
+  @Test
+  public void testDrinkLose() { 
+    
+    //Create Player object
+    Player tester = new Player(true, false, false);
     
     //Test Case
     assertEquals(tester.drink(),false);
@@ -63,4 +91,5 @@ public class PlayerTest {
     assertEquals(tester.drink(),true);
   }
 }
+
 
