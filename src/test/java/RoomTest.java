@@ -85,14 +85,17 @@ public class RoomTest {
     Room room2 = new Room(false, false, false, false, false);
     Room room3 = new Room(false, false, false, false, false);
 
-    assertThat(room1.getDescription(), containsString("Small"));
-    assertThat(room1.getDescription(), containsString("kettle"));
+    assertThat(room1.getDescription(), containsString("Static"));
+    assertThat(room1.getDescription(), containsString("Dynamic"));
+    assertThat(room1.getDescription(), containsString("sink"));
 
-    assertThat(room2.getDescription(), containsString("Small"));
-    assertThat(room2.getDescription(), containsString("kettle"));
+    assertThat(room2.getDescription(), containsString("Bulletproof"));
+    assertThat(room2.getDescription(), containsString("Late"));
+    assertThat(room2.getDescription(), containsString("elephant"));
 
-    assertThat(room3.getDescription(), containsString("Small"));
-    assertThat(room3.getDescription(), containsString("kettle"));
+    assertThat(room3.getDescription(), containsString("Salty"));
+    assertThat(room3.getDescription(), containsString("Sour"));
+    assertThat(room3.getDescription(), containsString("picture of a ghost"));
   }
 
 }
