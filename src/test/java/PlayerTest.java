@@ -29,7 +29,7 @@ public class PlayerTest {
    * Return of hasAllItems() should be false
    */
   @Test
-  public void testAllItemsOneLose() { 
+  public void testAllItemsLoseOne() { 
     
     //Create mock of Player object
     Player tester = new Player(true, false, false);
@@ -44,7 +44,7 @@ public class PlayerTest {
    * Return of hasAllItems() should be false
    */
   @Test
-  public void testAllItemsTwoLose() { 
+  public void testAllItemsLoseTwo() { 
     
     //Create mock of Player object
     Player tester = new Player(true, true, false);
@@ -85,7 +85,7 @@ public class PlayerTest {
    * Return of drink() should be false
    */
   @Test
-  public void testDrinkLose() { 
+  public void testDrinkLoseOne() { 
     
     //Create Player object
     Player tester = new Player(true, false, false);
@@ -99,7 +99,7 @@ public class PlayerTest {
    * Return of drink() should be false
    */
   @Test
-  public void testDrinkLose() { 
+  public void testDrinkLoseTwo() { 
     
     //Create Player object
     Player tester = new Player(true, true, false);
