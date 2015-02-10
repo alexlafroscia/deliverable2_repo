@@ -4,13 +4,14 @@ import static org.junit.Assert.*;
 import org.junit.*;
 
 public class PlayerTest {
-
+  
   @Test
   public void PlayerTestsRun() {
     assertEquals(0, 0);
   }
- /*
-   * Test case builds mock of player that has all items set to false
+  
+  /*
+   * Test case builds player that has all items set to false
    * Return of hasAllItems() should be false
    */
   @Test
@@ -24,14 +25,29 @@ public class PlayerTest {
   }
   
   /*
-   * Test case builds mock of player that has all items set to false
+   * Test case builds player that has one items set to true
    * Return of hasAllItems() should be false
    */
   @Test
-  public void testAllItemsLose() { 
+  public void testAllItemsOneLose() { 
     
     //Create mock of Player object
     Player tester = new Player(true, false, false);
+    
+    //Test Case
+    assertEquals(tester.hasAllItems(),false);
+  }
+  
+    
+  /*
+   * Test case builds player that has two items set to true
+   * Return of hasAllItems() should be false
+   */
+  @Test
+  public void testAllItemsTwoLose() { 
+    
+    //Create mock of Player object
+    Player tester = new Player(true, true, false);
     
     //Test Case
     assertEquals(tester.hasAllItems(),false);
@@ -51,7 +67,7 @@ public class PlayerTest {
   }
   
   /*
-   * Test case builds mock of player that has no items
+   * Test case builds player that has no items
    * Return of drink() should be false
    */
   @Test
@@ -65,7 +81,7 @@ public class PlayerTest {
   }
   
   /*
-   * Test case builds mock of player that has no items
+   * Test case builds player that has one item
    * Return of drink() should be false
    */
   @Test
@@ -73,6 +89,20 @@ public class PlayerTest {
     
     //Create Player object
     Player tester = new Player(true, false, false);
+    
+    //Test Case
+    assertEquals(tester.drink(),false);
+  }
+  
+  /*
+   * Test case builds player that has two items
+   * Return of drink() should be false
+   */
+  @Test
+  public void testDrinkLose() { 
+    
+    //Create Player object
+    Player tester = new Player(true, true, false);
     
     //Test Case
     assertEquals(tester.drink(),false);
@@ -91,5 +121,3 @@ public class PlayerTest {
     assertEquals(tester.drink(),true);
   }
 }
-
-
