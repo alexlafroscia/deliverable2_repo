@@ -2,12 +2,15 @@ package com.laboon;
 
 import static org.junit.Assert.*;
 import org.junit.*;
+import static org.mockito.Mockito.*;
 
 public class CoffeeMakerTest {
 
   @Test
-  public void CoffeeMakerTestsRun() {
-    assertEquals(0, 0);
+  public void RunArgsReturnsZero() {
+    String arg = "argghhhh";
+    CoffeeMaker cm = new CoffeeMaker();
+    assertEquals(cm.runArgs(arg), 0);
   }
 
 }
