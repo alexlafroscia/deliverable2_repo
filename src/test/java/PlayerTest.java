@@ -9,6 +9,58 @@ public class PlayerTest {
   public void PlayerTestsRun() {
     assertEquals(0, 0);
   }
-
+ /*
+   * Test case builds mock of player that has all items set to false
+   * Return of hasAllItems() should be false
+   */
+  @Test
+  public void testAllItemsEmpty() { 
+    
+    //Create mock of Player object
+    Player tester = Mockito.mock(Player.class);
+    
+    //Test Case
+    assertEquals(tester.hasAllItems(),false);
+  }
+  
+  /*
+   * Test case builds player that has all items
+   * Return of hasAllItems() should be true
+   */
+  @Test
+  public void testAllItems() { 
+    
+    Player tester = new Player(true, true, true);
+    
+    //Test Case
+    assertEquals(tester.hasAllItems(),true);
+  }
+  
+  /*
+   * Test case builds mock of player that has no items
+   * Return of drink() should be false
+   */
+  @Test
+  public void testDrinkEmpty() { 
+    
+    //Create mock of Player object
+    Player tester = Mockito.mock(Player.class);
+    
+    //Test Case
+    assertEquals(tester.drink(),false);
+  }
+  
+  /*
+   * Test case builds player that has all items
+   * Return of hasAllItems() should be true
+   */
+  @Test
+  public void testDrinkAllItems() { 
+    
+    Player tester = new Player(true, true, true);
+    
+    //Test Case
+    assertEquals(tester.drink(),true);
+  }
 }
 
