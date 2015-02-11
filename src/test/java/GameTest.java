@@ -20,8 +20,8 @@ public class GameTest {
   public void testCaseInsensitiveCommands(){
 
   //Create mock of player and house
-  Player mockPlayer = Mockito.mock(Player.class);
-  House mockHouse = Mockito.mock(House.class);
+  Player mockPlayer = mock(Player.class);
+  House mockHouse = mock(House.class);
   //Create Game object
   Game gameTester = new Game(mockPlayer, mockHouse);
 
@@ -43,13 +43,13 @@ public class GameTest {
    public void testMovementNorth(){
 
      //Create mock of player and house
-     Player mockPlayer = Mockito.mock(Player.class);
-     House mockHouse = Mockito.mock(House.class);
+     Player mockPlayer = mock(Player.class);
+     House mockHouse = mock(House.class);
      //Create Game object
      Game gameTester = new Game(mockPlayer, mockHouse);
 
      //Test Cases
-     Mockito.verify(mockHouse, times(2)).moveNorth(); //Check if moveNorth() is called twice
+     verify(mockHouse, times(2)).moveNorth(); //Check if moveNorth() is called twice
      gameTester.doSomething("n");
      gameTester.doSomething("N");
    }
@@ -62,13 +62,13 @@ public class GameTest {
    public void testMovementSouth(){
 
      //Create mock of player and house
-     Player mockPlayer = Mockito.mock(Player.class);
-     House mockHouse = Mockito.mock(House.class);
+     Player mockPlayer = mock(Player.class);
+     House mockHouse = mock(House.class);
      //Create Game object
      Game gameTester = new Game(mockPlayer, mockHouse);
 
      //Test Cases
-     Mockito.verify(mockHouse, times(2)).moveSouth(); //Check if moveSouth() is called twice
+     verify(mockHouse, times(2)).moveSouth(); //Check if moveSouth() is called twice
      gameTester.doSomething("s");
      gameTester.doSomething("S");
    }
@@ -78,16 +78,16 @@ public class GameTest {
     * There should be a call to look(player object, null)
     */
    @Test
-   public void testMovementSouth(){
+   public void testLook(){
 
      //Create mock of player and house
-     Player mockPlayer = Mockito.mock(Player.class);
-     House mockHouse = Mockito.mock(House.class);
+     Player mockPlayer = mock(Player.class);
+     House mockHouse = mock(House.class);
      //Create Game object
      Game gameTester = new Game(mockPlayer, mockHouse);
 
      //Test Cases
-     Mockito.verify(mockHouse, times(2)).look(mockPlayer, null); //Check if look(player, null) is called twice
+     verify(mockHouse, times(2)).look(mockPlayer, null); //Check if look(player, null) is called twice
      gameTester.doSomething("l");
      gameTester.doSomething("L");
    }
@@ -97,16 +97,16 @@ public class GameTest {
     * There should be a call to showInventory()
     */
    @Test
-   public void testMovementSouth(){
+   public void testShowInventory(){
 
      //Create mock of player and house
-     Player mockPlayer = Mockito.mock(Player.class);
-     House mockHouse = Mockito.mock(House.class);
+     Player mockPlayer = mock(Player.class);
+     House mockHouse = mock(House.class);
      //Create Game object
      Game gameTester = new Game(mockPlayer, mockHouse);
 
      //Test Cases
-     Mockito.verify(mockPlayer, times(2)).showInventory(); //Check if showInventory() is called twice
+     verify(mockPlayer, times(2)).showInventory(); //Check if showInventory() is called twice
      gameTester.doSomething("i");
      gameTester.doSomething("I");
    }
@@ -120,8 +120,8 @@ public class GameTest {
    public void testMovementSouth(){
 
      //Create mock of player and house
-     Player mockPlayer = Mockito.mock(Player.class);
-     House mockHouse = Mockito.mock(House.class);
+     Player mockPlayer = mock(Player.class);
+     House mockHouse = mock(House.class);
      //Create Game object
      Game gameTester = new Game(mockPlayer, mockHouse);
 

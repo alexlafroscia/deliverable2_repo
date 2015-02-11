@@ -20,7 +20,7 @@ public class HouseTest {
   public void testGetCurrentRoomInfo(){
 
     //Create mock of Room class
-    Room mockRoom = Mockito.mock(Room.class);
+    Room mockRoom = mock(Room.class);
     mockRoom[] mockRoomArray = new mockRoom[1];//Create array of mockRooms set to size 1
 
     //Create stub of .getDescription() method in Room class
@@ -42,7 +42,7 @@ public class HouseTest {
   public void testGetCurrentRoomInfoEdgeCase(){
 
     //Create mock of Room class
-    Room mockRoom = Mockito.mock(Room.class);
+    Room mockRoom = mock(Room.class);
     mockRoom[] mockRoomArray = new mockRoom[1];//Create array of mockRooms set to size 1
 
     //Create House object that sets _numRooms to 1 and _rooms to mockRoomArray and _currentRoom to 0
@@ -64,7 +64,7 @@ public class HouseTest {
   public void testRoomGenerator(){
 
     //Create mock of Room class
-    Room mockRoom = Mockito.mock(Room.class);
+    Room mockRoom = mock(Room.class);
     mockRoom[] mockRoomArray = new mockRoom[1];//Create array of mockRooms set to size 1
 
     //Create House object that sets _numRooms to 1 and _rooms to mockRoomArray and _currentRoom to 0
