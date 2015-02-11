@@ -117,7 +117,7 @@ public class GameTest {
     * Therefore boolean finalStatus will be true and toReturn will be set to 1
     */
    @Test
-   public void testMovementSouth(){
+   public void testDrink(){
 
      //Create mock of player and house
      Player mockPlayer = mock(Player.class);
@@ -126,7 +126,7 @@ public class GameTest {
      Game gameTester = new Game(mockPlayer, mockHouse);
 
      //Create stub of .drink() method in Player class
-     mockPlayer.when(mockPlayer.drink()).thenReturn(true);
+     when(mockPlayer.drink()).thenReturn(true);
 
      //Test Cases
      assertEquals(gameTester.doSomething("d"), 1);
