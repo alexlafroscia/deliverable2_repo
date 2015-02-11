@@ -2,6 +2,7 @@ package com.laboon;
 
 import static org.junit.Assert.*;
 import org.junit.*;
+import static org.mockito.Mockito.*;
 
 public class GameTest {
 
@@ -11,58 +12,124 @@ public class GameTest {
   }
 
   /*
+   * Test case creates mock of Player class and House class in order to create Game object
    * When the string is entered into doSomething(), the result should be the same
-   * for either lower or upper case of that string
+   * for either lower or upper case values of that string
    */
   @Test
-  public void caseInsensitiveCommands(){
+  public void testCaseInsensitiveCommands(){
  
-  //Create mock of Game object
-  Game tester = Mockito.mock(Game.class);
+  //Create mock of player and house  
+  Player mockPlayer = Mockito.mock(Player.class);
+  House mockHouse = Mockito.mock(House.class);
+  //Create Game object
+  Game gameTester = new Game(mockPlayer, mockHouse);
   
   //Test Cases
-  assertEquals(tester.doSomething("n"), tester.doSomething("N"));
-  assertEquals(tester.doSomething("s"), tester.doSomething("S"));
-  assertEquals(tester.doSomething("l"), tester.doSomething("L"));
-  assertEquals(tester.doSomething("i"), tester.doSomething("I"));
-  assertEquals(tester.doSomething("d"), tester.doSomething("D"));
-  assertEquals(tester.doSomething("h"), tester.doSomething("H"));
+  assertEquals(gameTester.doSomething("n"), gameTester.doSomething("N"));
+  assertEquals(gameTester.doSomething("s"), gameTester.doSomething("S"));
+  assertEquals(gameTester.doSomething("l"), gameTester.doSomething("L"));
+  assertEquals(gameTester.doSomething("i"), gameTester.doSomething("I"));
+  assertEquals(gameTester.doSomething("d"), gameTester.doSomething("D"));
+  assertEquals(gameTester.doSomething("h"), gameTester.doSomething("H"));
  }
    
   /*
-   * When the string "n" or "N" is entered into doSomething(), a call to 
-   * moveNorth() should be made to increment _currentRoom by one
+   * When the string "n" or "N" is entered into doSomething()
+   * There should be a call to moveNorth()
+   * SHOULD FAIL DUE TO n NOT BEING RECOGNIZED 
    */
   @Test
    public void testMovementNorth(){
      
-     //Create double of _currentRoom variable
-     int _currentRoom = 0;
-     
-     //Create mock of Game object
-     Game tester = Mockito.mock(Game.class);
+     //Create mock of player and house  
+     Player mockPlayer = Mockito.mock(Player.class);
+     House mockHouse = Mockito.mock(House.class);
+     //Create Game object
+     Game gameTester = new Game(mockPlayer, mockHouse);
      
      //Test Cases
-     assertEquals(tester.doSomething("n"), _currentRoom++);
-     assertEquals(tester.doSomething("N"), _currentRoom++); 
+     Mockito.verify(mockHouse, times(2)).moveNorth(); //Check if moveNorth() is called twice
+     gameTester.doSomething("n");
+     gameTester.doSomething("N");
    }
    
    /*
-    * When the string "s" or "S" is entered into doSomething(), a call to 
-    * moveSouth() should be made to decrement _currentRoom by one
+    * When the string "s" or "S" is entered into doSomething() 
+    * There should be a call to moveSouth()
     */
    @Test
    public void testMovementSouth(){
-     //Create double of _currentRoom variable
-     int _currentRoom = 1;
-
-     //Create mock of Game object
-     Game tester = Mockito.mock(Game.class);
+     
+     //Create mock of player and house  
+     Player mockPlayer = Mockito.mock(Player.class);
+     House mockHouse = Mockito.mock(House.class);
+     //Create Game object
+     Game gameTester = new Game(mockPlayer, mockHouse);
      
      //Test Cases
-     assertEquals(tester.doSomething("s"), _currentRoom--);
-     assertEquals(tester.doSomething("S"), _currentRoom--); 
+     Mockito.verify(mockHouse, times(2)).moveSouth(); //Check if moveSouth() is called twice
+     gameTester.doSomething("s");
+     gameTester.doSomething("S");
+   }
+    
+   /*
+    * When the string "l" or "L" is entered into doSomething() 
+    * There should be a call to look(player object, null)
+    */
+   @Test
+   public void testMovementSouth(){
      
+     //Create mock of player and house  
+     Player mockPlayer = Mockito.mock(Player.class);
+     House mockHouse = Mockito.mock(House.class);
+     //Create Game object
+     Game gameTester = new Game(mockPlayer, mockHouse);
+     
+     //Test Cases
+     Mockito.verify(mockHouse, times(2)).look(mockPlayer, null); //Check if look(player, null) is called twice
+     gameTester.doSomething("l");
+     gameTester.doSomething("L");
+   }
+   
+   /*
+    * When the string "i" or "I" is entered into doSomething() 
+    * There should be a call to showInventory()
+    */
+   @Test
+   public void testMovementSouth(){
+     
+     //Create mock of player and house  
+     Player mockPlayer = Mockito.mock(Player.class);
+     House mockHouse = Mockito.mock(House.class);
+     //Create Game object
+     Game gameTester = new Game(mockPlayer, mockHouse);
+     
+     //Test Cases
+     Mockito.verify(mockPlayer, times(2)).showInventory(); //Check if showInventory() is called twice
+     gameTester.doSomething("i");
+     gameTester.doSomething("I");
+   }
+   
+   /*
+    * When the string "d" or "D" is entered into doSomething() 
+    * There should be a call to drink() which is stubbed to return true
+    * Therefore boolean finalStatus will be true and toReturn will be set to 1
+    */
+   @Test
+   public void testMovementSouth(){
+     
+     //Create mock of player and house  
+     Player mockPlayer = Mockito.mock(Player.class);
+     House mockHouse = Mockito.mock(House.class);
+     //Create Game object
+     Game gameTester = new Game(mockPlayer, mockHouse);
+     
+     //Create stub of .drink() method in Player class
+     mockPlayer.when(mockPlayer.drink())thenReturn(true);
+     
+     //Test Cases
+     assertEquals(gameTester.doSomething("d"), 1);
+     assertEquals(gameTester.doSomething("D"), 1);
    }
 }
-
