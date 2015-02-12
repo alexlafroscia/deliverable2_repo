@@ -21,14 +21,17 @@ public class HouseTest {
 
     //Create mock of Room class
     Room mockRoom = mock(Room.class);
-    Room[] mockRoomArray = new Room[1];//Create array of mockRooms set to size 1
-
+    Room[] roomArray = new Room[2];//Create array of rooms set to size 1
+    roomArray[0] = new Room(false, false, false, false, false);
+    
     //Create stub of .getDescription() method in Room class
     when(mockRoom.getDescription()).thenReturn("hi");
 
     //Create House object that sets _numRooms to 1 and _rooms to mockRoomArray and _currentRoom to 0
-    House houseTester = new House(mockRoomArray);
-
+    House houseTester = new House(roomArray);
+    
+    houseTester.moveNorth();
+    
     //Test Case
     assertEquals(houseTester.getCurrentRoomInfo(), "hi");
   }
@@ -41,18 +44,18 @@ public class HouseTest {
   @Test
   public void testGetCurrentRoomInfoEdgeCase(){
 
-    //Create mock of Room class
-    Room mockRoom = mock(Room.class);
-    Room[] mockRoomArray = new Room[1];//Create array of mockRooms set to size 1
+    //Create array of Room object
+    Room[] roomArray = new Room[1];//Create array of rooms set to size 1
 
     //Create House object that sets _numRooms to 1 and _rooms to mockRoomArray and _currentRoom to 0
-    House houseTester = new House(mockRoomArray);
+    House houseTester = new House(roomArray);
 
     //Set _currentRoom to 1, thus outside size of mockRoomArray
     houseTester.moveNorth();
 
     //Test Case
-    assertEquals(houseTester.getCurrentRoomInfo(), "You are in a magical land! But you are returned to the beginning!");
+    String s = houseTester.getCurrentRoomInfo();
+    assertEquals(s, "You are in a magical land!  But you are returned to the beginning!");
   }
 
   /*
@@ -63,14 +66,17 @@ public class HouseTest {
   @Test
   public void testRoomGenerator(){
 
-    //Create mock of Room class
-    Room mockRoom = mock(Room.class);
-    Room[] mockRoomArray = new Room[1];//Create array of mockRooms set to size 1
-
+    Room[] roomArray = new Room[1];//Create array of rooms set to size 1
+    
     //Create House object that sets _numRooms to 1 and _rooms to mockRoomArray and _currentRoom to 0
-    House houseTester = new House(mockRoomArray);
-
+    House houseTester = new House(roomArray);
+    
+    Room comparison = new Room(false, true, false, true, false);
+    
     //Test Case
-    assertEquals(roomGenerated, new Room[]{false, true, false, true, false});
+    assertEquals(houseTester.generateRooms(1)[0], comparison); 
   }
 }
+
+
+
