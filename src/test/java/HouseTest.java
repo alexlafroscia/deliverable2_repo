@@ -20,20 +20,20 @@ public class HouseTest {
   public void testGetCurrentRoomInfo(){
 
     //Create mock of Room class
-    Room mockRoom = mock(Room.class);
     Room[] roomArray = new Room[2];//Create array of rooms set to size 1
-    roomArray[0] = new Room(false, false, false, false, false);
-    
+    roomArray[0] = mock(Room.class);
+    roomArray[1] = mock(Room.class);
+
     //Create stub of .getDescription() method in Room class
-    when(mockRoom.getDescription()).thenReturn("hi");
+    doReturn("Hi").when(roomArray[1]).getDescription();
 
     //Create House object that sets _numRooms to 1 and _rooms to mockRoomArray and _currentRoom to 0
     House houseTester = new House(roomArray);
-    
+
     houseTester.moveNorth();
-    
+
     //Test Case
-    assertEquals(houseTester.getCurrentRoomInfo(), "hi");
+    assertEquals(houseTester.getCurrentRoomInfo(), "Hi");
   }
 
   /*
@@ -67,14 +67,14 @@ public class HouseTest {
   public void testRoomGenerator(){
 
     Room[] roomArray = new Room[1];//Create array of rooms set to size 1
-    
+
     //Create House object that sets _numRooms to 1 and _rooms to mockRoomArray and _currentRoom to 0
     House houseTester = new House(roomArray);
-    
+
     Room comparison = new Room(false, true, false, true, false);
-    
+
     //Test Case
-    assertEquals(houseTester.generateRooms(1)[0], comparison); 
+    assertEquals(houseTester.generateRooms(1)[0], comparison);
   }
 }
 
