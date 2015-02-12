@@ -6,11 +6,11 @@ import static org.mockito.Mockito.*;
 
 public class GameTest {
 
-  @Test
-  public void GameTestsRun() {
-    assertEquals(0, 0);
-  }
-
+	  @Test
+	  public void GameTestsRun() {
+	    assertEquals(0, 0);
+	  }
+	
   /*
    * Test case creates mock of Player class and House class in order to create Game object
    * When the string is entered into doSomething(), the result should be the same
@@ -49,9 +49,9 @@ public class GameTest {
      Game gameTester = new Game(mockPlayer, mockHouse);
 
      //Test Cases
-     verify(mockHouse, times(2)).moveNorth(); //Check if moveNorth() is called twice
      gameTester.doSomething("n");
      gameTester.doSomething("N");
+     verify(mockHouse, times(2)).moveNorth(); //Check if moveNorth() is called twice
    }
 
    /*
@@ -68,9 +68,9 @@ public class GameTest {
      Game gameTester = new Game(mockPlayer, mockHouse);
 
      //Test Cases
-     verify(mockHouse, times(2)).moveSouth(); //Check if moveSouth() is called twice
      gameTester.doSomething("s");
      gameTester.doSomething("S");
+     verify(mockHouse, times(2)).moveSouth(); //Check if moveSouth() is called twice
    }
 
    /*
@@ -87,9 +87,9 @@ public class GameTest {
      Game gameTester = new Game(mockPlayer, mockHouse);
 
      //Test Cases
-     verify(mockHouse, times(2)).look(mockPlayer, null); //Check if look(player, null) is called twice
      gameTester.doSomething("l");
      gameTester.doSomething("L");
+     verify(mockHouse, times(2)).look(mockPlayer, null); //Check if look(player, null) is called twice
    }
 
    /*
@@ -106,9 +106,9 @@ public class GameTest {
      Game gameTester = new Game(mockPlayer, mockHouse);
 
      //Test Cases
-     verify(mockPlayer, times(2)).showInventory(); //Check if showInventory() is called twice
      gameTester.doSomething("i");
      gameTester.doSomething("I");
+     verify(mockPlayer, times(2)).showInventory(); //Check if showInventory() is called twice
    }
 
    /*
@@ -133,3 +133,4 @@ public class GameTest {
      assertEquals(gameTester.doSomething("D"), 1);
    }
 }
+
