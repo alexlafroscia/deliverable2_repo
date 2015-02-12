@@ -67,6 +67,8 @@ public class GameTest {
      //Create Game object
      Game gameTester = new Game(mockPlayer, mockHouse);
 
+     when(mockHouse.moveSouth()).thenReturn(true);
+
      //Test Cases
      gameTester.doSomething("s");
      gameTester.doSomething("S");
