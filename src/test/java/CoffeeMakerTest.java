@@ -6,6 +6,9 @@ import static org.mockito.Mockito.*;
 
 public class CoffeeMakerTest {
 
+  /*
+   * Test to make sure that the runArgs() method returns the correct value
+   */
   @Test
   public void RunArgsReturnsZero() {
     String arg = "argghhhh";

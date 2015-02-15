@@ -7,72 +7,109 @@ import static org.mockito.Mockito.*;
 
 public class RoomTest {
 
+  /*
+   * Test to make sure that the room having no items can be detected
+   */
   @Test
   public void CanDetectHavingNoItems() {
     Room room = new Room(false, false, false, false, false);
     assertFalse(room.hasItem());
   }
 
+  /*
+   * Test to make sure that the room having some amount of items creater than
+   * zero can be detected
+   */
   @Test
   public void CanDetectHavingSomeItems() {
     Room room = new Room(true, false, false, false, false);
     assertTrue(room.hasItem());
   }
 
+  /*
+   * Test to make sure that the room having sugar can be detected
+   */
   @Test
   public void CanDetectHavingSugar() {
     Room room = new Room(false, false, true, false, false);
     assertTrue(room.hasSugar());
   }
 
+  /*
+   * Test to make sure that the room not having sugar can be detected
+   */
   @Test
   public void CanDetectNotHavingSugar() {
     Room room = new Room(false, false, false, false, false);
     assertFalse(room.hasSugar());
   }
 
+  /*
+   * Test to make sure that the room having cream can be detected
+   */
   @Test
   public void CanDetectHavingCream() {
     Room room = new Room(false, true, false, false, false);
     assertTrue(room.hasCream());
   }
 
+  /*
+   * Test to make sure that the room not having cream can be detected
+   */
   @Test
   public void CanDetectNotHavingCream() {
     Room room = new Room(false, false, false, false, false);
     assertFalse(room.hasCream());
   }
 
+  /*
+   * Test to make sure that the room having coffee can be detected
+   */
   @Test
   public void CanDetectHavingCoffee() {
     Room room = new Room(true, false, false, false, false);
     assertTrue(room.hasCoffee());
   }
 
+  /*
+   * Test to make sure that the room not having coffee can be detected
+   */
   @Test
   public void CanDetectNotHavingCoffee() {
     Room room = new Room(false, false, false, false, false);
     assertFalse(room.hasCoffee());
   }
 
+  /*
+   * Test to make sure that the room having a north exit can be detected
+   */
   @Test
   public void CanDetectHavingNorthExit() {
     Room room = new Room(false, false, false, true, false);
     assertTrue(room.northExit());
   }
 
+  /*
+   * Test to make sure that the room not having a north exit can be detected
+   */
   @Test
   public void CanDetectNotHavingNorthExit() {
     Room room = new Room(false, false, false, false, false);
     assertFalse(room.northExit());
   }
 
+  /*
+   * Test to make sure that the room having a south exit can be detected
+   */
   @Test
   public void CanDetectHavingSouthExit() {
     Room room = new Room(false, false, false, false, true);
     assertTrue(room.southExit());
   }
 
+  /*
+   * Test to make sure that the room not having a south exit can be detected
+   */
   @Test
   public void CanDetectNotHavingSouthExit() {
     Room room = new Room(false, false, false, false, false);
@@ -80,13 +117,7 @@ public class RoomTest {
   }
 
   /*
-   * This test doesn't really show much, and originally I wanted the test to do
-   * more.  I had tried to initialize three rooms, and then test the description
-   * of each of them based on the order they were instantiated.  However,
-   * because the description depend on a static, private variable, the only way
-   * to stub that value, and therefore get consistent test results, is to use
-   * reflection.  Therefore, testing getDescription() in a nondeterministic way
-   * isn't really possible with the way that Room.java is currently set up.
+   * Test to make sure that the room can return the correct description
    */
   @Test
   public void CanGetDescription() {
