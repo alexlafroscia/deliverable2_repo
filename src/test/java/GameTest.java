@@ -14,7 +14,9 @@ public class GameTest {
   /*
    * Test case creates mock of Player class and House class in order to create Game object
    * When the string is entered into doSomething(), the result should be the same
-   * for either lower or upper case values of that string
+   * for either lower or upper case values of that string. doSomething() returns the int toReturn
+   * This int is only updated through arguments "D" and "d" in which case for this test, should return -1
+   * For all other strings, the return value should be 0
    */
   @Test
   public void testCaseInsensitiveCommands(){
@@ -36,8 +38,10 @@ public class GameTest {
 
   /*
    * When the string "n" or "N" is entered into doSomething()
-   * There should be a call to moveNorth()
-   * SHOULD FAIL DUE TO n NOT BEING RECOGNIZED
+   * There should be a call to moveNorth() which is located within an if statement that tests the argument values
+   * moveNorth() is a method found in the House class
+   * Through mockito verification, this method should be accounted for twice
+   * SHOULD FAIL DUE TO "n" NOT BEING RECOGNIZED
    */
   @Test
    public void testMovementNorth(){
@@ -56,7 +60,8 @@ public class GameTest {
 
    /*
     * When the string "s" or "S" is entered into doSomething()
-    * There should be a call to moveSouth()
+    * There should be a call to moveSouth(), a House class method
+    * Through mockito verification, this method should be accounted for twice
     */
    @Test
    public void testMovementSouth(){
@@ -77,7 +82,8 @@ public class GameTest {
 
    /*
     * When the string "l" or "L" is entered into doSomething()
-    * There should be a call to look(player object, null)
+    * There should be a call to look(player object, null) a House class method
+    * Through mockito verification, this method should be accounted for twice
     */
    @Test
    public void testLook(){
@@ -96,7 +102,8 @@ public class GameTest {
 
    /*
     * When the string "i" or "I" is entered into doSomething()
-    * There should be a call to showInventory()
+    * There should be a call to showInventory() a Player class method
+    * Through mockito verification, this method should be accounted for twice
     */
    @Test
    public void testShowInventory(){
