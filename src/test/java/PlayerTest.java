@@ -7,7 +7,7 @@ import org.junit.Test;
 public class PlayerTest {
 
 	 /*
-	   * Test case builds player that has all items set to false
+	   * Test case builds Player object that has all items by default set to false
 	   * Return of hasAllItems() should be false
 	   */
 	  @Test
@@ -21,7 +21,7 @@ public class PlayerTest {
 	  }
 	  
 	  /*
-	   * Test case builds player that has one items set to true
+	   * Test case builds Player object that has one item set to true (_hasSugar)
 	   * Return of hasAllItems() should be false
 	   */
 	  @Test
@@ -36,13 +36,13 @@ public class PlayerTest {
 	  
 	    
 	  /*
-	   * Test case builds player that has two items set to true
+	   * Test case builds Player object that has two items set to true (_hasSugar & _hasCream)
 	   * Return of hasAllItems() should be false
 	   */
 	  @Test
 	  public void testAllItemsLoseTwo() { 
 	    
-	    //Create mock of Player object
+	    //Create new Player object
 	    Player tester = new Player(true, true, false);
 	    
 	    //Test Case
@@ -50,12 +50,13 @@ public class PlayerTest {
 	  }
 	  
 	  /*
-	   * Test case builds player that has all items
+	   * Test case builds Player object that has all items
 	   * Return of hasAllItems() should be true
 	   */
 	  @Test
 	  public void testAllItems() { 
 	    
+	    //Create new Player object
 	    Player tester = new Player(true, true, true);
 	    
 	    //Test Case
@@ -63,7 +64,7 @@ public class PlayerTest {
 	  }
 	  
 	  /*
-	   * Test case builds player that has no items
+	   * Test case builds Player object that has no items by default 
 	   * Return of drink() should be false
 	   */
 	  @Test
@@ -77,7 +78,7 @@ public class PlayerTest {
 	  }
 	  
 	  /*
-	   * Test case builds player that has one item
+	   * Test case builds Player object that has one item (_hasSugar)
 	   * Return of drink() should be false
 	   */
 	  @Test
@@ -91,7 +92,7 @@ public class PlayerTest {
 	  }
 	  
 	  /*
-	   * Test case builds player that has two items
+	   * Test case builds Player object that has two items (_hasSugar & _hasCream)
 	   * Return of drink() should be false
 	   */
 	  @Test
@@ -111,6 +112,7 @@ public class PlayerTest {
 	  @Test
 	  public void testDrinkAllItems() { 
 	    
+	    //Create Player object
 	    Player tester = new Player(true, true, true);
 	    
 	    //Test Case
