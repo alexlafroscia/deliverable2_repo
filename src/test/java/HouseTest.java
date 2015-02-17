@@ -12,45 +12,42 @@ public class HouseTest {
   }
 
   /*
-   * This test case checks that when getCurrentRoomInfo() is called
-   * a description is returned for a valid _currentRoom that is found
-   * within the array
+   * This test case checks that when getCurrentRoomInfo() is called with a value of _currentRoom that is within the array size
+   * the stubbed description is returned for that specific index in the array
    */
   @Test
   public void testGetCurrentRoomInfo(){
 
-    //Create mock of Room class
-    Room[] roomArray = new Room[2];//Create array of rooms set to size 1
-    roomArray[0] = mock(Room.class);
+    Room[] roomArray = new Room[2]; //Create array of rooms set to size 2
+    roomArray[0] = mock(Room.class); //Initialize both rooms with mock Room class
     roomArray[1] = mock(Room.class);
 
     //Create stub of .getDescription() method in Room class
     doReturn("Hi").when(roomArray[1]).getDescription();
 
-    //Create House object that sets _numRooms to 1 and _rooms to mockRoomArray and _currentRoom to 0
+    //Create House object that will set _rooms equal to roomArray and _numRooms equal to 2
     House houseTester = new House(roomArray);
 
-    houseTester.moveNorth();
+    houseTester.moveNorth(); //Assure that _currentRoom is set to 1
 
     //Test Case
     assertEquals(houseTester.getCurrentRoomInfo(), "Hi");
   }
 
   /*
-   * This test case checks that the expected output for a room
+   * This test case is an edge case that checks that the expected output for a room
    * greater than the size of the array returns
    * "You are in a magical land! But you are returned to the beginning!"
    */
   @Test
   public void testGetCurrentRoomInfoEdgeCase(){
 
-    //Create array of Room object
     Room[] roomArray = new Room[1];//Create array of rooms set to size 1
 
-    //Create House object that sets _numRooms to 1 and _rooms to mockRoomArray and _currentRoom to 0
+    //Create House object that sets _numRooms to 1 and _rooms to roomArray and _currentRoom to 0
     House houseTester = new House(roomArray);
 
-    //Set _currentRoom to 1, thus outside size of mockRoomArray
+    //Set _currentRoom to 1, thus outside size of roomArray
     houseTester.moveNorth();
 
     //Test Case
@@ -59,17 +56,21 @@ public class HouseTest {
   }
 
   /*
-   * This test case checks that toReturn room array contains the correct boolean values
-   * Associated with the room's position in the house that is the first room where the cream
-   * Is found and there is only a north door
+   * This test case checks that generateRooms(_numRooms)'s return value of the room array toReturn 
+   * Contains the correct boolean values for a given House size instantiation
+   * Dependent upon the _numRooms and a for loop, five different boolean values are set
+   * For this particular House object, the create boolean values were determined for the 0th room and 1st room
+   * This values can then comprise Room objects listed below as comparison and comparison2
+   * These Room objects are assured to be equal to the specific index in the toReturn array that holds Room objects
    */
   @Test
   public void testRoomGenerator(){    
-    //Create House object that sets _numRooms to 1 and _rooms to mockRoomArray and _currentRoom to 0
+    
+    //Create House object that sets _numRooms to 2 and calls method generateRooms(2) returning the array value for _rooms
     House houseTester = new House(2);
                             //coffee, cream, sugar, north, south
-    Room comparison = new Room(false, true, true, false, false); //For 0th room
-    Room comparison2 = new Room(false, false, true, false, true); //For 1st room
+    Room comparison = new Room(false, true, true, false, false); //For 0th room in houseTester
+    Room comparison2 = new Room(false, false, true, false, true); //For 1st room in houseTester
 
     //Test Case
     assertEquals(houseTester.generateRooms(1)[0].hasCream(), comparison.hasCream());
